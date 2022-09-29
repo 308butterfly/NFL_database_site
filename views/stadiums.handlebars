@@ -1,0 +1,60 @@
+<div class="container mt-5 text-center">
+  <h3 class="">Add New Stadiums</h3>
+  <form id="addStadium" action="/stadiums" method="post" class="">
+    <div class="form-row justify-content-center">
+      <div class="form-group col-md-2">
+        <label for="stadiumName">Name</label>
+        <input type="text" name="stadium_name" required class="form-control" id="stadiumName" placeholder="Stadium Name">
+      </div>
+      <div class="form-group col-md-2">
+        <label for="stadiumCapacity">Capacity</label>
+        <input type="number" min="0" name="capacity" required class="form-control" id="stadiumCapacity" placeholder="10000">
+      </div>
+      <div class="form-group col-md-2">
+        <label for="stadiumCity">City</label>
+        <input type="text" name="city" required class="form-control" id="stadiumCity" placeholder="City">
+      </div>
+      <div class="form-group col-md-2">
+        <label for="stadiumState">State</label>
+        <input type="text" name="state" required class="form-control" id="stadiumState" placeholder="State">
+      </div>
+      <div class="form-group col-md-2">
+        <label for="stadiumCountry">Country</label>
+        <input type="text" name="country" required class="form-control" id="stadiumCountry" placeholder="Country">
+      </div>
+    </div>
+    <button type="submit" class="btn btn-success" id="insertStadium">Insert Stadium</button>
+    <button type="submit" class="btn btn-success" id="searchStadium">Search Stadium</button>
+
+  </form>
+</div>
+<div class="container mt-5 " id="">
+  <table class="table table-bordered table-dark">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Capacity</th>
+          {{!-- <th>Home Team</th> --}}
+          <th>City</th>
+          <th>State</th>
+          <th>Country</th>
+          <th></th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        {{#each stadiums}}
+        <tr>
+          <td>{{stadium_name}}</td>
+          <td>{{capacity}}</td>
+          {{!-- <td>{{team_name}}</td> --}}
+          <td>{{city}}</td>
+          <td>{{state}}</td>
+          <td>{{country}}</td>
+          <td><button class="button btn-warning" id="{{stadiums_ID}}">Update</button></td>
+          <td><button onclick="deleteStadium({{stadiums_ID}})" class="button btn-danger" id="{{stadiums_ID}}">Delete</button></td>
+        </tr>
+        {{/each}}
+      </tbody>
+    </table>
+</div>

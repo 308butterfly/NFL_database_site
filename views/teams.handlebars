@@ -1,0 +1,80 @@
+<div class="container mt-5 text-center">
+  <h3 class="">Add New Teams</h3>
+  <form id="addTeam" action="/teams" method="post" class="">
+    <div class="form-row justify-content-center">
+      <div class="form-group col-auto">
+        <label for="teamName">Name</label>
+        <input type="text" name="team_name"required  class="form-control" id="teamName" placeholder="Location Mascot">
+      </div>
+      <div class="form-group col-auto">
+        <label for="ownerFirst">Owner First Name</label>
+        <input type="text" name="owner_first_name"  required class="form-control" id="ownerFirst" placeholder="Rich">
+      </div>
+      <div class="form-group col-auto">
+        <label for="ownerLast">Owner Last Name</label>
+        <input type="text" name="owner_last_name" required class="form-control" id="ownerLast" placeholder="Guy">
+      </div>
+      <div class="form-group col-1">
+        <label for="teamWins">Wins</label>
+        <input type="number" min="0" name="team_wins"class="form-control" id="teamWins" placeholder="0">
+      </div>
+      <div class="form-group col-1">
+        <label for="teamLoses">Loses</label>
+        <input type="number" min="0" name="team_loses"class="form-control" id="teamLoses" placeholder="0">
+      </div>
+      <div class="form-group col-1">
+        <label for="teamTies">Ties</label>
+        <input type="number" min="0" name="team_ties" class="form-control" id="teamTies" placeholder="0">
+      </div>
+      <div class="form-group col-auto">
+        <label for="teamStadium">Stadium</label>
+        {{!-- <input type="" class="form-control" id="teamStadium"> --}}
+        <select type="number" name="ID_stadiums" required class="form-control" id="teamStadium" placeholder="">
+          {{#each stadiums}}
+          <option value="{{stadiums_ID}}">{{stadium_name}}</option>
+          {{/each}}
+          {{!-- <option value="0">Non NFL Stadium</option> --}}
+        </select>
+      </div>
+    </div>
+    <button type="submit" class="btn btn-success" id="insertTeam">Insert Team</button>
+    <button type="submit" class="btn btn-success" id="searchTeams">Search Team</button>
+
+  </form>
+</div>
+<div class="container mt-5" id="">
+  <table class="table table-bordered table-dark">
+    <thead>
+      <tr>
+        <th>Team Name</th>
+        <th>Owner First Name</th>
+        <th>Owner Last Name</th>
+        {{!-- <th>Coach First Name</th>
+        <th>Coach Last Name</th> --}}
+        <th>Team Wins</th>
+        <th>Team Loses</th>
+        <th>Team Ties</th>
+        <th>Stadium</th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each teams}}
+      <tr>
+        <td>{{team_name}}</td>
+        <td>{{owner_first_name}}</td>
+        <td>{{owner_last_name}}</td>
+        {{!-- <td>{{coach_first_name}}</td>
+        <td>{{coach_last_name}}</td> --}}
+        <td>{{team_wins}}</td>
+        <td>{{team_loses}}</td>
+        <td>{{team_ties}}</td>
+        <td>{{stadium_name}}</td>
+        <td><button class="button btn-warning" id="{{teams_ID}}">Update</button></td>
+        <td><button class="button btn-danger" id="{{teams_ID}}">Delete</button></td>
+      </tr>
+      {{/each}}
+    </tbody>
+  </table>
+</div>

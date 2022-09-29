@@ -1,0 +1,63 @@
+<div class="container mt-5 text-center">
+  <h3 class="">Add New Coach</h3>
+  <form id="addCoach" action="/coaches" method="post" class="">
+    <div class="form-row">
+      <div class="form-group col-md-2">
+        <label for="coachFirst">First Name</label>
+        <input type="text" name="coach_first_name" required class="form-control" id="coachFirst" placeholder="Jon">
+      </div>
+      <div class="form-group col-md-2">
+        <label for="coachLast">Last Name</label>
+        <input type="text" name="coach_last_name" required class="form-control" id="coachLast" placeholder="Doe">
+      </div>
+      <div class="form-group col-md-2">
+        <label for="coachTeam">Team</label>
+        <select type="text" name="ID_teams" class="form-control" id="coachTeam" placeholder="Team">
+          {{#each teams}}
+          <option value={{teams_ID}}>{{team_name}}</option>
+          {{/each}}
+          <option value="0">No Team</option>
+        </select>
+      </div>
+      <div class="form-group col-md-2">
+        <label for="coachWins">Career Wins</label>
+        <input type="number" min="0" name="career_wins" class="form-control" id="coachWins" placeholder="0">
+      </div>
+      <div class="form-group col-md-2">
+        <label for="coachLosses">Career Loses</label>
+        <input type="number" min="0" name="career_loses" class="form-control" id="coachLosses" placeholder="0">
+      </div>
+    </div>
+    <button type="submit" class="btn btn-success" id="insertCoach">Insert Coach</button>
+    <button type="submit" class="btn btn-success" id="searchStadium">Search Coaches</button>
+  </form>
+</div>
+
+<div class="container mt-5" id="">
+  <table class="table table-bordered table-dark">
+      <thead>
+        <tr>
+          <th>First Name</th>
+          <th>Last Name</th>
+          <th>Current Team</th>
+          <th>Career Wins</th>
+          <th>Career Loses</th>
+          <th></th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        {{#each coaches}}
+        <tr>
+          <td>{{coach_first_name}}</td>
+          <td>{{coach_last_name}}</td>
+          <td>{{team_name}}</td>
+          <td>{{career_wins}}</td>
+          <td>{{career_loses}}</td>
+          <td><button class="button btn-warning" id="{{ID_coaches}}">Update</button></td>
+          <td><button class="button btn-danger" id="{{ID_coaches}}">Delete</button></td>
+        </tr>
+        {{/each}}
+      </tbody>
+    </table>
+</div>

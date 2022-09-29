@@ -1,0 +1,66 @@
+<div class="container mt-5 text-center">
+  <h3 class="">Add New Players</h3>
+  <form id="addPlayer" action="/players" method="post" class="">
+    <div class="form-row justify-content-center">
+      <div class="form-group col-auto">
+        <label for="playerFirst">Player First Name</label>
+        <input type="text" name="player_first_name" required class="form-control" id="playerFirst" placeholder="Football">
+      </div>
+      <div class="form-group col-auto">
+        <label for="playerLast">Player Last Name</label>
+        <input type="text" name="player_last_name" required class="form-control" id="playerLast" placeholder="Player">
+      </div>
+      <div class="form-group col-auto">
+        <label for="playerTeam">Team</label>
+        <select type="text" name="ID_teams" class="form-control" id="gameLoser" placeholder="Team">
+          {{#each teams}}
+          <option value={{teams_ID}}>{{team_name}}</option>
+          {{/each}}
+          <option value="0">No Team</option>
+        </select>
+      </div>
+      <div class="form-group col-auto">
+        <label for="playerPosition">Position</label>
+        <input type="text" name="position" class="form-control" id="playerPosition" placeholder="P">
+      </div>
+      <div class="form-group col-auto">
+        <label for="playerNumber">Number</label>
+        <input type="number" min="0" max="99" name="player_number" class="form-control" id="playerNumber">
+      </div>
+    </div>
+    <button type="submit" class="btn btn-success" id="insertPlayer">Insert Players</button>
+    <button type="submit" class="btn btn-success" id="searchStadium">Search Players</button>
+
+  </form>
+</div>
+
+<div class="container mt-5 " id="">
+
+  <table class="table table-bordered table-dark">
+    <thead>
+      <tr>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Current Team</th>
+        <th>Position</th>
+        <th>Number</th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each players}}
+      <tr>
+        <td>{{player_first_name}}</td>
+        <td>{{player_last_name}}</td>
+        <td>{{team_name}}</td>
+        <td>{{position}}</td>
+        <td>{{player_number}}</td>
+        <td><button class="button btn-warning" id="{{players_id}}">Update</button></td>
+        <td><button class="button btn-danger" id="{{players_id}}">Delete</button></td>
+      </tr>
+      {{/each}}
+    </tbody>
+  </table>
+
+</div>
