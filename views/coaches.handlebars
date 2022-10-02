@@ -54,8 +54,16 @@
           <td>{{team_name}}</td>
           <td>{{career_wins}}</td>
           <td>{{career_loses}}</td>
-          <td><button class="button btn-warning" id="{{ID_coaches}}">Update</button></td>
-          <td><button class="button btn-danger" id="{{ID_coaches}}">Delete</button></td>
+          <td>
+            <button class="button btn-warning" id="{{ID_coaches}}">
+                <i class="fa fa-refresh" aria-hidden="true"></i>
+            </button>
+        </td>
+        <td>
+            <button class="button btn-danger" id="{{ID_coaches}}">
+                <i class="fas fa-trash" aria-hidden="true"></i>
+            </button>
+        </td>
         </tr>
         {{/each}}
       </tbody>
