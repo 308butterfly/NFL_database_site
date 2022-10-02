@@ -47,3 +47,8 @@ table caption
   caption-side: top;
   color: #FFFFFF;
 }
+
+td button {
+    display: block;
+    margin: auto;
+}
