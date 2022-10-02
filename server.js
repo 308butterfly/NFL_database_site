@@ -1,6 +1,6 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-const mysql = require('./public/dbcon.js');
+const mysql = require('./public/js/dbcon.js');
 
 const app = express();
 const handlebars = require('express-handlebars').create({
@@ -13,11 +13,11 @@ app.use('/static', express.static('public'));
 app.set('view engine', 'handlebars');
 app.set('port', process.argv[2]);
 app.set('mysql', mysql);
-app.use('/coaches',require('./coaches.js'));
-app.use('/games',require('./games.js'));
-app.use('/players',require('./players.js'));
-app.use('/stadiums', require('./stadiums.js'));
-app.use('/teams',require('./teams.js'));
+app.use('/coaches',require('./routes/coaches.js'));
+app.use('/games',require('./routes/games.js'));
+app.use('/players',require('./routes/players.js'));
+app.use('/stadiums', require('./routes/stadiums.js'));
+app.use('/teams',require('./routes/teams.js'));
 app.use('/', express.static('public'));
 
 app.use((req,res) => {
