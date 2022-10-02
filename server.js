@@ -13,12 +13,14 @@ app.use('/static', express.static('public'));
 app.set('view engine', 'handlebars');
 app.set('port', process.argv[2]);
 app.set('mysql', mysql);
+app.use('/', require('./routes/index.js'));
 app.use('/coaches',require('./routes/coaches.js'));
 app.use('/games',require('./routes/games.js'));
 app.use('/players',require('./routes/players.js'));
 app.use('/stadiums', require('./routes/stadiums.js'));
 app.use('/teams',require('./routes/teams.js'));
 app.use('/', express.static('public'));
+app.use(express.static('public'));
 
 app.use((req,res) => {
   res.status(404);
