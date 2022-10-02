@@ -51,8 +51,8 @@
           <td>{{city}}</td>
           <td>{{state}}</td>
           <td>{{country}}</td>
-          <td><button class="button btn-warning" id="{{stadiums_ID}}">Update</button></td>
-          <td><button onclick="deleteStadium({{stadiums_ID}})" class="button btn-danger" id="{{stadiums_ID}}">Delete</button></td>
+          <td class="text-center"><button class="button btn-warning" id="{{stadiums_ID}}"><i class="fa fa-refresh" aria-hidden="true"></i></button></td>
+          <td class="text-center"><button onclick="deleteStadium({{stadiums_ID}})" class="button btn-danger" id="{{stadiums_ID}}"><i class="fas fa-trash" aria-hidden="true"></i></button></td>
         </tr>
         {{/each}}
       </tbody>

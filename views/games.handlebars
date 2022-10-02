@@ -71,8 +71,8 @@
           <td>{{guest_score}}</td>
           {{!-- <td>{{this}}</td> --}}
           <td>{{game_date}}</td>
-          <td><button onclick="updateGame()" class="button btn-warning" id="updateGame_{{games_ID}}" >Update</button></td>
-          <td><button onclick="deleteGame()"class="button btn-danger" id="deleteGame_{{games_ID}}" onclick="doesThisWork({{games_ID}})">Delete</button></td>
+          <td class="text-center"><button onclick="updateGame()" class="button btn-warning" id="updateGame_{{games_ID}}" ><i class="fa fa-refresh" aria-hidden="true"></i></button></td>
+          <td class="text-center"><button onclick="deleteGame()"class="button btn-danger" id="deleteGame_{{games_ID}}" onclick="doesThisWork({{games_ID}})"><i class="fas fa-trash" aria-hidden="true"></i></button></td>
         </tr>
         {{/each}}
       </tbody>
