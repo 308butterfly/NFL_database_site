@@ -3,14 +3,17 @@ const bodyParser = require('body-parser');
 const mysql = require('./public/js/dbcon.js');
 
 const app = express();
-const handlebars = require('express-handlebars').create({
-  defaultLayout: 'main'
-});
+const hbs = require('express-handlebars');
 
-app.engine('handlebars', handlebars.engine);
+app.set('view engine', 'hbs');
+app.engine('hbs', hbs({
+    extname: 'hbs',
+    defaultLayout: 'main',
+    layoutsDir: `${__dirname}/views/layouts`,
+    partialsDir: `${__dirname}/views/partials`
+}));
 app.use(bodyParser.urlencoded({extended:true}));
 app.use('/static', express.static('public'));
-app.set('view engine', 'handlebars');
 app.set('port', process.argv[2]);
 app.set('mysql', mysql);
 app.use('/', require('./routes/index.js'));
